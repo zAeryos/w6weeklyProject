@@ -30,7 +30,7 @@ public class EmployeeService {
 
     }
 
-    public Employee save(EmployeeRequest employeeRequest) {
+    public Employee save(EmployeeRequest employeeRequest) throws NotFoundException{
 
         Employee  employee   = new Employee();
 
@@ -44,7 +44,7 @@ public class EmployeeService {
 
     }
 
-    public Employee update(int id, EmployeeRequest employeeRequest) {
+    public Employee update(int id, EmployeeRequest employeeRequest) throws NotFoundException{
 
         Employee employee = getById(id);
 
@@ -57,14 +57,14 @@ public class EmployeeService {
 
     }
 
-    public void delete(int id) {
+    public void delete(int id) throws NotFoundException{
 
         Employee employee = getById(id);
         employeeRepository.delete(employee);
 
     }
 
-    public Employee updatePfp(int id, String url) {
+    public Employee updatePfp(int id, String url) throws NotFoundException{
 
         Employee employee = getById(id);
         employee.setPfp(url);
